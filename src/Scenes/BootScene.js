@@ -5,9 +5,11 @@ export default class BootScene extends Phaser.Scene {
     super('Boot');
   }
  
-  preload () {
-  }
+preload () {
+  this.load.image('logo', "../src/assets/logo.png");
+}
  
-  create () {
-  }
+create () {
+  this.scene.start('Preloader');
+}
 };
