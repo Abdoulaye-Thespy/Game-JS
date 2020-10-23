@@ -80,8 +80,8 @@ this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 this.load.image('blueButton1', '../src/assets/ui/blue_button02.png');
 this.load.image('blueButton2', '../src/assets/ui/blue_button03.png');
 this.load.image('phaserLogo', '../src/assets/logo.png');
-this.load.image('box', '../assets/ui/grey_box.png');
-this.load.image('checkedBox', '..src/assets/ui/logo.png');
+this.load.image('box', '../src/assets/ui/grey_box.png');
+this.load.image('checkedBox', '../src/assets/ui/logo.png');
 this.load.audio('bgMusic', ['..src/assets/TownTheme.mp3']);
 }
 
