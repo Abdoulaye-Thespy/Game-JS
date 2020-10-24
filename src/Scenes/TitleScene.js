@@ -55,7 +55,8 @@ this.input.on('pointerout', function (event, gameObjects) {
 });
 
 this.model = this.sys.game.globals.model;
-if (this.model.musicOn === true) {
+if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
+  this.model.bgMusicPlaying = true;
   this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
   this.bgMusic.play();
 }
