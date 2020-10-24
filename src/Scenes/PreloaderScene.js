@@ -82,7 +82,7 @@ this.load.image('blueButton2', '../src/assets/ui/blue_button03.png');
 this.load.image('phaserLogo', '../src/assets/logo.png');
 this.load.image('box', '../src/assets/ui/grey_box.png');
 this.load.image('checkedBox', '../src/assets/ui/logo.png');
-this.load.audio('bgMusic', ['..src/assets/TownTheme.mp3']);
+this.load.audio('bgMusic', ['../src/assets/TownTheme.mp3']);
 }
 
 
@@ -92,7 +92,7 @@ init () {
 }
  
 ready () {
-  this.scene.start('Options');
+  this.scene.start('Title');
   this.readyCount++;
   if (this.readyCount === 2) {
     this.scene.start('Title');
