@@ -46,16 +46,22 @@ this.updateAudio();
 
 updateAudio() {
   if (this.model.musicOn === false) {
-    this.musicButton.setTexture('box');
-  } else {
-    this.musicButton.setTexture('checkedBox');
+  this.musicButton.setTexture('box');
+  this.sys.game.globals.bgMusic.stop();
+  this.model.bgMusicPlaying = false;
+} else {
+  this.musicButton.setTexture('checkedBox');
+  if (this.model.bgMusicPlaying === false) {
+    this.sys.game.globals.bgMusic.play();
+    this.model.bgMusicPlaying = true;
   }
+}
  
-  if (this.model.soundOn === false) {
-    this.soundButton.setTexture('box');
-  } else {
-    this.soundButton.setTexture('checkedBox');
-  }
+if (this.model.soundOn === false) {
+  this.soundButton.setTexture('box');
+} else {
+  this.soundButton.setTexture('checkedBox');
+}
 }
 
 }
