@@ -49,6 +49,10 @@ this.physics.add.collider(player, platforms);
  cursors = this.input.keyboard.createCursorKeys();
   }
 
+
+
+  
+
 update () {
   if (cursors.left.isDown)
 {
