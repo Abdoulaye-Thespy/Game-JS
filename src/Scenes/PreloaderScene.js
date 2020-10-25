@@ -85,6 +85,10 @@ this.load.image('phaserLogo', '../src/assets/logo.png');
 this.load.image('box', '../src/assets/ui/grey_box.png');
 this.load.image('checkedBox', '../src/assets/ui/logo.png');
 this.load.audio('bgMusic', ['../src/assets/TownTheme.mp3']);
+    this.load.spritesheet('dude', 
+        '../src/assets/dude.png',
+        { frameWidth: 32, frameHeight: 48 }
+    );
 }
 
 
