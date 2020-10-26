@@ -78,6 +78,7 @@ this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
  
 // load assets needed in our game
 this.load.image('sky', '../src/assets/sky.png');
+this.load.image('star', '../src/assets/star.png');
 this.load.image('step', '../src/assets/step.png');
 this.load.image('blueButton1', '../src/assets/ui/blue_button02.png');
 this.load.image('blueButton2', '../src/assets/ui/blue_button03.png');

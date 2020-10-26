@@ -13,14 +13,26 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('logo', "../src/assets/logo.png");
   }
  
+   onMeetEnemy (player, zone) {        
+ // start battle
+  // we move the zone to some other location
+        zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+        zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+        
+        // shake the world
+        this.cameras.main.shake(100);
+        
+        // start battle 
+    };
+
   create () {
     
 let map = this.make.tilemap({ key: 'map' });
         
  let tiles = map.addTilesetImage('spritesheet', 'tiles');
         
- let grass = map.createStaticLayer('Grass', tiles, 0, 0);
-        var obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
+ let grass = map.createStaticLayer('Grass', tiles, 0, 0).setScale(2);
+        let obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
         obstacles.setCollisionByExclusion([-1]);
    this.player = this.physics.add.sprite(0, 580, 'player', 6);
         this.physics.world.bounds.width = map.widthInPixels;
@@ -61,6 +73,14 @@ let map = this.make.tilemap({ key: 'map' });
         1
     
  this.physics.add.collider(this.player, obstacles);
+
+  this.spawns = this.physics.add.group({  key: 'star', repeat: 11,setXY: { x: Phaser.Math.RND.between(0, this.physics.world.bounds.width), y: Phaser.Math.RND.between(8, this.physics.world.bounds.height), stepX: 70 }});
+        for(var i = 0; i < 30; i++) {
+            var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+            var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+            // parameters are x, y, width, height          
+        }        
+          this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
   }
 
 
