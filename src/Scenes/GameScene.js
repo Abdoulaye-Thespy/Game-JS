@@ -17,17 +17,23 @@ export default class GameScene extends Phaser.Scene {
     y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
      this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
           this.spawns.setVelocity(0, 10);
-         this.bombs = this.physics.add.group({  key: 'bomb', repeat: 5, setXY: { x: Phaser.Math.RND.between(80,90 ), 
-    y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
-     this.physics.add.overlap(this.player, this.bombs, this.onMeetEnemy, false, this);
-          this.bombs.setVelocity(0, Phaser.Math.RND.between(10,100 ));
+         this.bombs = this.physics.add.group({  key: 'bomb', repeat: 4, setXY: { x: Phaser.Math.RND.between(80,90 ), 
+    y: Phaser.Math.RND.between(0, 10), stepX: 70 }});
+     this.physics.add.overlap(this.player, this.bombs, this.hitBomb, false, this);
+          this.bombs.setVelocity(Phaser.Math.RND.between(-10,5 ), Phaser.Math.RND.between(10,100 ));
         
 
     };
 
-deleteStar (obstacles, star)
+ hitBomb (player, bomb)
 {
-    star.disableBody(true, true);
+    this.physics.pause();
+
+    player.setTint(0xff0000);
+
+    player.anims.play('turn');
+    this.scene.start('Options');
+
 }
 
   create () {
