@@ -1,19 +1,5 @@
 import 'phaser';
 import config from '../Config/config';
- // let platforms;
- // let player;
- // let cursors;
- let game;
- 
-// global game options
-let gameOptions = {
-    platformStartSpeed: 350,
-    spawnRange: [100, 350],
-    platformSizeRange: [50, 250],
-    playerGravity: 900,
-    jumpForce: 400,
-    playerStartPosition: 200
-}
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -25,19 +11,18 @@ export default class GameScene extends Phaser.Scene {
   }
  
    onMeetEnemy (player, zone) {        
- // start battle
-  // we move the zone to some other location
         zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
         zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-        
-        // shake the world
-        this.cameras.main.shake(30);
      this.spawns = this.physics.add.group({  key: 'star',setXY: { x: Phaser.Math.RND.between(80,90 ), 
     y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
      this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
           this.spawns.setVelocity(0, 10);
+         this.bombs = this.physics.add.group({  key: 'bomb', repeat: 5, setXY: { x: Phaser.Math.RND.between(80,90 ), 
+    y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
+     this.physics.add.overlap(this.player, this.bombs, this.onMeetEnemy, false, this);
+          this.bombs.setVelocity(0, Phaser.Math.RND.between(10,100 ));
         
-        // start battle 
+
     };
 
 deleteStar (obstacles, star)
