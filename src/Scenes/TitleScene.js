@@ -132,7 +132,7 @@ export default class TitleScene extends Phaser.Scene {
     }
     CreateLoginDialog(this, {
       x: config.width / 2,
-      y: 200,
+      y: 80,
       title: 'Please enter your username',
       username: model.userName,
     }).on('login', function played(username) {
