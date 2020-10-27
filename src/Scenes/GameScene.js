@@ -3,6 +3,17 @@ import config from '../Config/config';
  // let platforms;
  // let player;
  // let cursors;
+ let game;
+ 
+// global game options
+let gameOptions = {
+    platformStartSpeed: 350,
+    spawnRange: [100, 350],
+    platformSizeRange: [50, 250],
+    playerGravity: 900,
+    jumpForce: 400,
+    playerStartPosition: 200
+}
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -20,10 +31,19 @@ export default class GameScene extends Phaser.Scene {
         zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
         
         // shake the world
-        this.cameras.main.shake(100);
+        this.cameras.main.shake(30);
+     this.spawns = this.physics.add.group({  key: 'star',setXY: { x: Phaser.Math.RND.between(80,90 ), 
+    y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
+     this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+          this.spawns.setVelocity(0, 10);
         
         // start battle 
     };
+
+deleteStar (obstacles, star)
+{
+    star.disableBody(true, true);
+}
 
   create () {
     
@@ -31,7 +51,7 @@ let map = this.make.tilemap({ key: 'map' });
         
  let tiles = map.addTilesetImage('spritesheet', 'tiles');
         
- let grass = map.createStaticLayer('Grass', tiles, 0, 0).setScale(2);
+ let grass = map.createStaticLayer('Grass', tiles, 0, 0);
         let obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
         obstacles.setCollisionByExclusion([-1]);
    this.player = this.physics.add.sprite(0, 580, 'player', 6);
@@ -40,7 +60,7 @@ let map = this.make.tilemap({ key: 'map' });
         this.player.setCollideWorldBounds(true);
     
        this.cursors = this.input.keyboard.createCursorKeys();
-        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+        this.cameras.main.setBounds(-160, -60, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.roundPixels = true;
            //  animation with key 'left', we don't need left and right as we will use one and flip the sprite
@@ -74,14 +94,15 @@ let map = this.make.tilemap({ key: 'map' });
     
  this.physics.add.collider(this.player, obstacles);
 
-  this.spawns = this.physics.add.group({  key: 'star', repeat: 11,setXY: { x: Phaser.Math.RND.between(0, this.physics.world.bounds.width), y: Phaser.Math.RND.between(8, this.physics.world.bounds.height), stepX: 70 }});
-        for(var i = 0; i < 30; i++) {
-            var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-            var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-            // parameters are x, y, width, height          
-        }        
+  this.spawns = this.physics.add.group({  key: 'star', repeat: 5,setXY: { x: Phaser.Math.RND.between(80,90 ), 
+    y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
+        
           this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
-  }
+          this.spawns.setVelocity(0, 10);
+          this.physics.add.collider(this.spawns, obstacles);
+          this.physics.add.collider(this.spawns, tiles);
+
+            }
 
 
 update (time, delta)

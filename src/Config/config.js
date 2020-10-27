@@ -10,8 +10,8 @@ export default {
   physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 300 },
-            debug: false
+            gravity: { y: 0 },
+            debug: true
         }
      },
      scale: {
@@ -21,7 +21,7 @@ export default {
         width: 800,
         height: 600
     },
-};
+ };
 
 
 
