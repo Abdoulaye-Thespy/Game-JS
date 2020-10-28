@@ -1,5 +1,9 @@
 import 'phaser';
 import config from '../Config/config';
+import { updateScore } from '../modules/score';
+
+let scoreText;
+let score =0;
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -10,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('logo', "../src/assets/logo.png");
   }
  
-   onMeetEnemy (player, zone) {        
+   hitStar (player, zone) {        
         zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
         zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
      this.spawns = this.physics.add.group({  key: 'star',setXY: { x: Phaser.Math.RND.between(80,90 ), 
@@ -21,6 +25,8 @@ export default class GameScene extends Phaser.Scene {
     y: Phaser.Math.RND.between(0, 10), stepX: 70 }});
      this.physics.add.overlap(this.player, this.bombs, this.hitBomb, false, this);
           this.bombs.setVelocity(Phaser.Math.RND.between(-10,5 ), Phaser.Math.RND.between(10,100 ));
+          score = updateScore(score);
+        scoreText.setText(`Score:${score}`);
         
 
     };
@@ -88,10 +94,11 @@ let map = this.make.tilemap({ key: 'map' });
   this.spawns = this.physics.add.group({  key: 'star', repeat: 5,setXY: { x: Phaser.Math.RND.between(80,90 ), 
     y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
         
-          this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+          this.physics.add.overlap(this.player, this.spawns, this.hitStar, false, this);
           this.spawns.setVelocity(0, 10);
           this.physics.add.collider(this.spawns, obstacles);
           this.physics.add.collider(this.spawns, tiles);
+           scoreText = this.add.text(0, 0, 'Score:0', { fontSize: '30px', fill: '#222' });
 
             }
 
