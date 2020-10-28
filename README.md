@@ -1,55 +1,111 @@
-# Phaser 3 Webpack Project Template
+# Start collection
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+> This is a platform game set in a field, where the player's goal is to collect as much stars as he can, while avoiding the bombs, for each star collected the player will gain 5 points and when he meets one bomb, the game will stop.
 
-Loading images via JavaScript module `import` is also supported.
-
-## Requirements
-
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
-
-## Available Commands
-
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
-
-## Writing Code
-
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
+## Animation
+<p align="center">
+  <img width="100%"  src="./src/assets/icy.gif">
+</p>
 
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
+## Built With
 
-## Customizing Template
+- HTML,
+- CSS,
+- Phaser 3,
+- JavaScript,
+- Netlify (for deployment),
+- Webpack,
+- Jest,
+- Leaderboard API service.
 
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+## Live Demo
 
-  ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
-  ```
+[Live Demo Link](https://icytowerreplica.netlify.app/)
 
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+## Setup
 
-## Deploying Code
-After you run the `npm run build` command, your code will be built into a single bundle located at 
-`dist/bundle.min.js` along with any other assets you project depended. 
+-To use this app locally, 
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+Clone this repo:
+
+- Clone with HTTPS:
+```
+https://github.com/Abdoulaye-Thespy/Game-JS
+```
+- Clone with SHH:
+```
+https://github.com/Abdoulaye-Thespy/Game-JS
+```
+- run 
+``` 
+npm install
+```
+ in the directory that you download the source.
+
+- run 
+```
+npm run start
+```
+to play the game locally.
+
+## Game Design
+
+### Player
+<p>
+  <img   src="./src/assets/player.png">
+</p>
+
+-Role: Collecting stars whille avoiding bombs.
+
+-Actions: Moving left, moving rigt, foward and backward.
+
+### Bomb
+<p>
+  <img   src="./src/assets/bomb.png">
+</p>
+
+-Goal: Collect as much stars as you can.
+
+
+
+
+
+## Usage
+
+-If you click on the Score Board button, you can view the highest 10 scores. To go back, you can click on the Menu button,
+
+-To turn off/on the game music, you can visit the options,
+
+-To play the game you need to type a valid name which has at least one character. Then you can clik on the play button to play the game,
+
+-When youstart the game, the main purpose is to collact as much stars as you can while avoiding the bombs.
+
+-To climb the tower you can use the up arrow/button,
+
+-The more you climb, the faster steps move,
+
+-Each star you collect, will get you 5 more points
+
+-Good luck.
+
+
+## Author
+
+👤 **Njigouh Abdoulaye**
+
+- Github: [@SafaErden](https://github.com/Abdoulaye-Thespy)
+- Linkedin: [SafaErden](https://www.linkedin.com/in/njigouh-abdoulaye-razak/)
+- Email: [safaerden](njigouhrazak@iut-dhaka.edu)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Abdoulaye-Thespy/Game-JS/issues)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments

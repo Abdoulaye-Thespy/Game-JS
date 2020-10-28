@@ -19,7 +19,7 @@ export default class GameScene extends Phaser.Scene {
         zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
      this.spawns = this.physics.add.group({  key: 'star',setXY: { x: Phaser.Math.RND.between(80,90 ), 
     y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
-     this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+     this.physics.add.overlap(this.player, this.spawns, this.hitStar, false, this);
           this.spawns.setVelocity(0, 10);
          this.bombs = this.physics.add.group({  key: 'bomb', repeat: 4, setXY: { x: Phaser.Math.RND.between(80,90 ), 
     y: Phaser.Math.RND.between(0, 10), stepX: 70 }});
@@ -38,6 +38,23 @@ export default class GameScene extends Phaser.Scene {
     player.setTint(0xff0000);
 
     player.anims.play('turn');
+
+
+
+    // let url =
+    //             'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/gv40Y9XXDktliqpcA0vA/scores';
+    //   const data = {
+    //     user: this.model.userName,
+    //     score,
+    //   };
+    //   fetch(url, {
+    //     mode: 'cors',
+    //     method: 'POST',
+    //     body: JSON.stringify(data),
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //   });
     this.scene.start('ScoreBoard');
 
 }
@@ -92,7 +109,7 @@ let map = this.make.tilemap({ key: 'map' });
  this.physics.add.collider(this.player, obstacles);
 
   this.spawns = this.physics.add.group({  key: 'star', repeat: 5,setXY: { x: Phaser.Math.RND.between(80,90 ), 
-    y: Phaser.Math.RND.between(0, this.physics.world.bounds.height), stepX: 70 }});
+    y: Phaser.Math.RND.between(0, 10), stepX: 70 }});
         
           this.physics.add.overlap(this.player, this.spawns, this.hitStar, false, this);
           this.spawns.setVelocity(0, 10);
