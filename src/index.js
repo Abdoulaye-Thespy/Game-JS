@@ -8,11 +8,11 @@ import OptionsScene from './Scenes/OptionsScene';
 import CreditsScene from './Scenes/CreditsScene';
 import ScoreScene from './Scenes/ScoreScene';
 import Model from './Model';
- 
+
 class Game extends Phaser.Game {
-  constructor () {
+  constructor() {
     super(config);
-    const model = new Model(); 
+    const model = new Model();
     this.globals = { model, bgMusic: null };
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
@@ -22,10 +22,7 @@ class Game extends Phaser.Game {
     this.scene.add('Game', GameScene);
     this.scene.add('ScoreBoard', ScoreScene);
     this.scene.start('Boot');
-
-
-
   }
 }
- 
+
 window.game = new Game();

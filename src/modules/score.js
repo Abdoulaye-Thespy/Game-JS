@@ -4,7 +4,7 @@ export function updateScore(score) {
 }
 
 export async function getScore() {
-  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/gv40Y9XXDktliqpcA0vA/scores/';
+  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdx/scores/';
   let result = await fetch(url, {
     mode: 'cors',
   });
