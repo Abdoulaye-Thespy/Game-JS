@@ -4,7 +4,7 @@
 
 ## Animation
 <p align="center">
-  <img width="100%"  src="./src/assets/icy.gif">
+  <img width="100%"  src="./src/assets/12.png">
 </p>
 
 
@@ -53,7 +53,7 @@ to play the game locally.
 
 ### Player
 <p>
-  <img   src="./src/assets/player.png">
+  <img   src="./src/assets/RPG_assets.png">
 </p>
 
 -Role: Collecting stars whille avoiding bombs.
@@ -94,9 +94,9 @@ to play the game locally.
 
 👤 **Njigouh Abdoulaye**
 
-- Github: [@SafaErden](https://github.com/Abdoulaye-Thespy)
-- Linkedin: [SafaErden](https://www.linkedin.com/in/njigouh-abdoulaye-razak/)
-- Email: [safaerden](njigouhrazak@iut-dhaka.edu)
+- Github: [@Njigouh Abdoulaye Razal](https://github.com/Abdoulaye-Thespy)
+- Linkedin: [Njigouh Abdoulaye Razak](https://www.linkedin.com/in/njigouh-abdoulaye-razak/)
+- Email: [Njigouh Abdoulaye Razak](njigouhrazak@iut-dhaka.edu)
 
 ## 🤝 Contributing
 
