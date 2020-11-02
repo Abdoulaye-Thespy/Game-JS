@@ -79,7 +79,7 @@ to play the game locally.
 
 -To play the game you need to type a valid name which has at least one character. Then you can clik on the play button to play the game,
 
--When youstart the game, the main purpose is to collact as much stars as you can while avoiding the bombs.
+-When you start the game, the main purpose is to collact as much stars as you can while avoiding the bombs.
 
 -To climb the tower you can use the up arrow/button,
 
