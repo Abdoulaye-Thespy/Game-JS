@@ -16,6 +16,8 @@
     "no-unused-vars": "off",
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-unused-expressions": "off",
     "eol-last": "off",
     "arrow-parens": "off"
   },

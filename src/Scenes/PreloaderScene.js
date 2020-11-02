@@ -53,7 +53,9 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // update progress bar
     this.load.on('progress', (value) => {
+      /* eslint-disable*/ 
       percentText.setText(`${parseInt(value * 100)}%`);
+      /* eslint-enable */
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);
@@ -99,12 +101,11 @@ export default class PreloaderScene extends Phaser.Scene {
 
   ready() {
     this.scene.start('Title');
+    /* eslint-disable*/ 
     this.readyCount++;
+    /* eslint-enable */
     if (this.readyCount === 2) {
       this.scene.start('Title');
     }
-  }
-
-  create() {
   }
 }
