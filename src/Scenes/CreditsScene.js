@@ -24,6 +24,7 @@ export default class CreditsScene extends Phaser.Scene {
     this.madeByText.setY(1000);
     this.creditsTween = this.tweens.add({
       targets: this.creditsText,
+
       y: -100,
       ease: 'Power1',
       duration: 3000,
