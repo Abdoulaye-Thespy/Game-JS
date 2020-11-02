@@ -60,7 +60,7 @@ export default class ScoreScene extends Phaser.Scene {
     const scoreBoard = this.rexUI.add
       .scrollablePanel({
         x: config.width / 2,
-        y: config.height / 2 -50,
+        y: config.height / 2 - 50,
         width: 400,
         height: 500,
 

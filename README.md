@@ -21,7 +21,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://icytowerreplica.netlify.app/)
+[Live Demo Link](https://5fa02f88894fb75bde53bcc3--competent-bassi-2d3c93.netlify.app/)
 
 ## Setup
 
